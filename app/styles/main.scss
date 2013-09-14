@@ -1,32 +1,61 @@
 $iconSpritePath: "../images/glyphicons-halflings.png";
 $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 
+$bodyBackground: #000000;
+$textColor: #F0F0F0;
+$heroUnitBackground: lighten($bodyBackground, 25%);
+$inputBackground: #000000;
+$inputBorder: #333333;
+
 @import "bootstrap-sass/lib/bootstrap";
 
 /* Put your CSS here */
-html, body {
-  margin: 20px;
+
+
+$sizes: big, small;
+$dimensions: 40px, 5px;
+$types: corner, wide, u, snake, b, cross;
+
+@for $type from 0 to length($types) {
+  @for $i from 1 through 4 {
+    $aType: #{nth($types, $type + 1)};
+    .small .glyph-#{$aType}-#{$i} {
+      display: inline-block;
+      background-image: url('/images/fezalpha_small.png');
+      width: 5px;
+      height: 5px;
+      background-position: ((1 - $i) * 5px) (-$type * 5px);
+    }
+    .big .glyph-#{$aType}-#{$i} {
+      display: inline-block;
+      background-image: url('/images/fezalpha_big.png');
+      width: 40px;
+      height: 40px;
+      background-position: ((1 - $i) * 40px) (-$type * 40px);
+    }
+  }
 }
 
-body {
-    background: #fafafa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333;
+.fezzish {
+  line-height: 0;
 }
 
-.hero-unit {
-    margin: 50px auto 0 auto;
-    width: 300px;
-    font-size: 18px;
-    font-weight: 200;
-    line-height: 30px;
-    background-color: #eee;
-    border-radius: 6px;
-    padding: 60px;
+.fezzish.big span {
+  margin: 2px;
+}
+.fezzish.small span {
+  margin: 1px;
 }
 
-.hero-unit h1 {
-    font-size: 60px;
-    line-height: 1;
-    letter-spacing: -1px;
+.small .glyph-blank {
+  display: inline-block;
+  background: black;
+  width: 5px;
+  height: 5px;
+}
+.big .glyph-blank {
+  display: inline-block;
+  background: black;
+  width: 40px;
+  height: 40px;
 }
