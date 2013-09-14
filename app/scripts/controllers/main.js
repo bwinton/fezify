@@ -7,4 +7,5 @@ angular.module('fezifyApp')
       'AngularJS',
       'Karma'
     ];
+    $scope.plaintext = '';
   });

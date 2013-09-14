@@ -1,9 +1,16 @@
 <div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <p>You now have</p>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
+  <h1>Fezifier!</h1>
+  <p>An app to fezify your text.</p>
+</div>
+<div class="row">
+  <div class="span12">
+    <input type="text" ng-model="plaintext">
+    <ul>
+        <li ng-repeat="thing in awesomeThings">{{thing}}</li>
+    </ul>
+    <div class="fezzish big" ng-bind-html-unsafe="plaintext | fezify"></div>
+    <div class="fezzish small" ng-bind-html-unsafe="plaintext | fezify"></div>
+
+    <h3>Enjoy coding! - Yeoman</h3>
+  </div>
 </div>
