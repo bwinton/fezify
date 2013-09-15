@@ -21,14 +21,14 @@ $types: corner, wide, u, snake, b, cross;
     $aType: #{nth($types, $type + 1)};
     .small .glyph-#{$aType}-#{$i} {
       display: inline-block;
-      background-image: url('/images/fezalpha_small.png');
+      background-image: url('../images/fezalpha_small.png');
       width: 5px;
       height: 5px;
       background-position: ((1 - $i) * 5px) (-$type * 5px);
     }
     .big .glyph-#{$aType}-#{$i} {
       display: inline-block;
-      background-image: url('/images/fezalpha_big.png');
+      background-image: url('../images/fezalpha_big.png');
       width: 40px;
       height: 40px;
       background-position: ((1 - $i) * 40px) (-$type * 40px);
@@ -38,6 +38,7 @@ $types: corner, wide, u, snake, b, cross;
 
 .fezzish {
   line-height: 0;
+  margin-bottom: 50px;
 }
 
 .fezzish.big span {
