@@ -41,7 +41,11 @@ angular.module('fezifyApp').
     return function(input) {
       var out = '';
       for (var i = 0; i < input.length; i++) {
-        out += '<span class="' + getClass(input.charAt(i)) + '"></span>';
+        if (input.charAt(i) === '\n') {
+          out += '<br>';
+        } else {
+          out += '<span class="' + getClass(input.charAt(i)) + '"></span>';
+        }
       }
       return out;
     };
