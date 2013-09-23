@@ -5,7 +5,7 @@
 <div class="row">
   <div class="span12">
     <textarea multiline="true" autofocus="true" ng-model="plaintext"></textarea>
-    <div class="fezzish big" ng-bind-html-unsafe="plaintext | fezify"></div>
-    <div class="fezzish small" ng-bind-html-unsafe="plaintext | fezify"></div>
+    <fezish class="big" ng-model="plaintext"></fezish>
+    <fezish class="small" ng-model="plaintext"></fezish>
   </div>
 </div>

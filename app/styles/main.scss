@@ -36,15 +36,16 @@ $types: corner, wide, u, snake, b, cross;
   }
 }
 
-.fezzish {
+fezish {
+  display: block;
   line-height: 0;
   margin-bottom: 50px;
 }
 
-.fezzish.big span {
+fezish.big span {
   margin: 2px;
 }
-.fezzish.small span {
+fezish.small span {
   margin: 1px;
 }
 
