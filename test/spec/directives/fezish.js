@@ -13,8 +13,8 @@ describe('Directive: fezish', function () {
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<fezish></fezish>');
+    element = angular.element('<fezish class="big" ng-model="plaintext"></fezish>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the fezish directive');
+    expect(element.text()).toBe('');
   }));
 });
