@@ -35,9 +35,11 @@ angular.module('fezifyApp')
       ' ': 'glyph-blank',
     };
 
-    var getClass = function (a) {
-      return glyphmap[a.toLowerCase()];
-    };
+    // Pre-munge the glyphmap, to make the lookup faster.
+    for (var glyph in glyphmap) {
+      glyphmap[glyph] = '<span class="' + glyphmap[glyph] + '"></span>';
+    }
+    glyphmap['\n'] = '<br>';
 
     return {
       template: '<div></div>',
@@ -47,15 +49,9 @@ angular.module('fezifyApp')
         $element.addClass($attrs['class']);
         ngModel.$render = function () {
           var value = ngModel.$viewValue || '';
-          var out = '';
-          for (var i = 0; i < value.length; i++) {
-            var currentChar = value.charAt(i);
-            if (currentChar === '\n') {
-              out += '<br>';
-            } else if (currentChar in glyphmap) {
-              out += '<span class="' + getClass(value.charAt(i)) + '"></span>';
-            }
-          }
+          var out = value.toLowerCase().replace(/.|\n/g, function (match) {
+            return glyphmap[match] || '';
+          });
           $element.html(out);
         };
       }
